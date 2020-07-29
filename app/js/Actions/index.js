@@ -23,6 +23,39 @@ const Actions = {
         });
       })
       .catch(error => handleError(CONSTANTS.CREATE_STORY, error));
+  },
+
+  storiesIndex() {
+    WebAPI.storiesIndex()
+      .then(json => {
+        dispatcher.dispatch({
+          action: CONSTANTS.GET_STORIES,
+          data: json
+        });
+      })
+      .catch(error => handleError(CONSTANTS.GET_STORIES, error));
+  },
+
+  storiesShow(id) {
+    WebAPI.storiesShow(id)
+      .then(json => {
+        dispatcher.dispatch({
+          action: CONSTANTS.GET_STORY,
+          data: json
+        });
+      })
+      .catch(error => handleError(CONSTANTS.GET_STORY, error));
+  },
+
+  storiesUpdate(payload) {
+    WebAPI.storiesUpdate(payload)
+      .then(json => {
+        dispatcher.dispatch({
+          action: CONSTANTS.UPDATE_STORY,
+          data: json
+        });
+      })
+      .catch(error => handleError(CONSTANTS.UPDATE_STORY, error));
   }
 };
 

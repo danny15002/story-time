@@ -13,6 +13,7 @@ function withAuth(ComponentClass) {
 
     render() {
       const activeUser = Store.getActiveUser();
+      console.log(activeUser)
 
       if (!activeUser)
         return (

@@ -29,7 +29,11 @@ class LoginComponenet extends Component {
   }
 
   componentDidMount() {
-    Store.addEventListener(CONSTANTS.SIGN_IN, this.onLogin)
+    Store.addEventListener(CONSTANTS.SIGN_IN, this.onLogin);
+  }
+
+  componentWillUnmount() {
+    Store.removeEventListener(CONSTANTS.SIGN_IN, this.onLogin);
   }
 
   _onEmailChange(event) {
@@ -50,7 +54,7 @@ class LoginComponenet extends Component {
 
   _onLogin() {
     const activeUser = Store.getActiveUser();
-    console.log(Store, activeUser)
+    console.log(activeUser)
     if (activeUser.role === 'user')
       return this.props.history.push('/stories/new');
 

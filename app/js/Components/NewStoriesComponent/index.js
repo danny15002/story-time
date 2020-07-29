@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 
 import withAuth from '../ProtectedWrapper';
+import Header from '../Header';
 import Actions from '../../Actions';
 import Store from '../../Store';
 import CONSTANTS from '../../Constants';
@@ -24,7 +25,7 @@ class NewStoriesComponent extends Component {
       description: '',
       type: '',
       complexity: '',
-      estimatedTime: '',
+      estimatedHrs: '',
       cost: ''
     };
 
@@ -33,13 +34,17 @@ class NewStoriesComponent extends Component {
     this.onDescriptionChange = this._onChange('description');
     this.onTypeChange = this._onChange('type');
     this.onComplexityChange = this._onChange('complexity');
-    this.onEstimatedTime = this._onChange('estimatedTime');
+    this.onEstimatedTime = this._onChange('estimatedHrs');
     this.onCostChange = this._onChange('cost');
     this.onCreateStory = () => this._onCreateStory();
   }
 
   componentDidMount() {
     Store.addEventListener(CONSTANTS.CREATE_STORY, this.onCreateStory);
+  }
+
+  componentWillUnmount() {
+    Store.removeEventListener(CONSTANTS.CREATE_STORY, this.onCreateStory);
   }
 
   _onCreateStory() {
@@ -62,6 +67,7 @@ class NewStoriesComponent extends Component {
   render() {
     return (
       <div className="login-component">
+        <Header />
         <p>All fields are required.</p>
         <div>
           <InputLabel>Summary</InputLabel>
@@ -105,7 +111,7 @@ class NewStoriesComponent extends Component {
           <TextField
             type="number"
             onChange={this.onEstimatedTime}
-            value={this.state.estimatedTime}
+            value={this.state.estimatedHrs}
           />
         </div>
         <div>

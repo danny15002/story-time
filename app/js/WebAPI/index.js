@@ -34,11 +34,15 @@ class WebAPIClass {
   }
 
   storiesShow(id) {
-    const url = `${URL}/v1/stories`;
+    const url = `${URL}/v1/stories/${id}`;
 
     return request(url, {
       method: 'GET'
     });
+  }
+
+  storiesUpdate(payload) {
+    return Promise.resolve(payload);
   }
 }
 
