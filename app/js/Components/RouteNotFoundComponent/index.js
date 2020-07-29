@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
+import HeaderComponent from '../HeaderComponent';
+
 class RouteNotFoundComponent extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    };
   }
 
   render() {
     return (
       <div>
+        <HeaderComponent />
         <div>No matching route found.</div>
       </div>
     );

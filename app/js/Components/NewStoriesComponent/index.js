@@ -11,10 +11,12 @@ import {
 } from '@material-ui/core';
 
 import withAuth from '../ProtectedWrapper';
-import Header from '../Header';
+import HeaderComponent from '../HeaderComponent';
 import Actions from '../../Actions';
 import Store from '../../Store';
 import CONSTANTS from '../../Constants';
+
+import './style.css';
 
 class NewStoriesComponent extends Component {
   constructor(props) {
@@ -66,24 +68,25 @@ class NewStoriesComponent extends Component {
 
   render() {
     return (
-      <div className="login-component">
-        <Header />
+      <div className="new-story-component">
+        <HeaderComponent />
+        <h3>Create a story:</h3>
         <p>All fields are required.</p>
-        <div>
+        <div className="story-input">
           <InputLabel>Summary</InputLabel>
           <TextField
             onChange={this.onSummaryChange}
             value={this.state.summary}
           />
         </div>
-        <div>
+        <div className="story-input">
           <InputLabel>Description</InputLabel>
           <TextField
             onChange={this.onDescriptionChange}
             value={this.state.description}
           />
         </div>
-        <div>
+        <div className="story-input">
           <InputLabel>Type</InputLabel>
           <Select
             value={this.state.type}
@@ -95,7 +98,7 @@ class NewStoriesComponent extends Component {
             <MenuItem value="qa">QA</MenuItem>
           </Select>
         </div>
-        <div>
+        <div className="story-input">
           <InputLabel>Complexity</InputLabel>
           <Select
             value={this.state.complexity}
@@ -106,7 +109,7 @@ class NewStoriesComponent extends Component {
             <MenuItem value="high">High</MenuItem>
           </Select>
         </div>
-        <div>
+        <div className="story-input">
           <InputLabel>Estimated Time</InputLabel>
           <TextField
             type="number"
@@ -114,7 +117,7 @@ class NewStoriesComponent extends Component {
             value={this.state.estimatedHrs}
           />
         </div>
-        <div>
+        <div className="story-input">
           <InputLabel>Cost</InputLabel>
           <Input
             onChange={this.onCostChange}

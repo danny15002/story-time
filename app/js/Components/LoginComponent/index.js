@@ -11,6 +11,8 @@ import Actions from '../../Actions';
 import Store from '../../Store';
 import CONSTANTS from '../../Constants';
 
+import './style.css';
+
 class LoginComponenet extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,6 @@ class LoginComponenet extends Component {
 
   _onLogin() {
     const activeUser = Store.getActiveUser();
-    console.log(activeUser)
     if (activeUser.role === 'user')
       return this.props.history.push('/stories/new');
 
@@ -72,6 +73,9 @@ class LoginComponenet extends Component {
 
     return (
       <div className="login-component">
+        <div className="header">
+          <h1 className="header-title">Story Time</h1>
+        </div>
         <div>
           <TextField
             label="email"
@@ -82,6 +86,7 @@ class LoginComponenet extends Component {
         <div>
           <TextField
             label="password"
+            type="password"
             value={this.state.password}
             onChange={this.onPasswordChange}
           />
@@ -99,7 +104,7 @@ class LoginComponenet extends Component {
           onClick={this.login}
           variant="contained"
         >
-          Log In!
+          Submit
         </Button>
       </div>
     );

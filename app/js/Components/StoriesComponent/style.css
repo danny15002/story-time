@@ -1,0 +1,38 @@
+.stories-component {
+  padding-left: 3%;
+  padding-right: 3%;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* @@media (max-width 500px) {
+  .stories-component {
+    width: 100%;
+  }
+} */
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters label {
+  margin-bottom: 3px;
+}
+
+.admin {
+  background: black;
+}
+
+.admin td {
+  color: white;
+}
+
+.accepted {
+  background: forestgreen;
+}
+
+.rejected {
+  background: lightcoral;
+}

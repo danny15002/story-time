@@ -1,0 +1,9 @@
+.new-story-component {
+  height: 100%;
+  width: 50%;
+  min-width: 300px;
+}
+
+.story-input {
+  margin-bottom: 10px;
+}

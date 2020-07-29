@@ -1,0 +1,15 @@
+.header-component {
+  height: 10%;
+  max-height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1.header-title {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.nav-bar > * {
+  margin-right: 10px;
+}

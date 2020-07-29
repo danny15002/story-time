@@ -33,13 +33,26 @@ class StoreClass extends EventEmitter {
   getStories() {
     return resources.stories;
   }
+
+  clearResources() {
+    delete resources.activeUser;
+    delete resources.activeStory;
+    delete resources.stories;
+  }
+
+  getCachedStory(id) {
+    let idx = 0;
+    while (idx < resources.stories.length && resources.stories[idx].id != id)
+      idx++;
+
+    return resources.stories[idx];
+  }
 }
 
 const Store = new StoreClass();
 
 dispatcher.register(payload => {
   const { action, data } = payload;
-  console.log('STORE', action, data);
 
   switch (action) {
     case CONSTANTS.SIGN_IN:
@@ -56,6 +69,7 @@ dispatcher.register(payload => {
       Store.emit(action);
       break;
     case CONSTANTS.UPDATE_STORY:
+      emulateUpdate(data);
       Store.emit(action);
       break;
     case CONSTANTS.GET_STORIES: {
@@ -70,5 +84,13 @@ dispatcher.register(payload => {
     }
   }
 });
+
+function emulateUpdate(story) {
+  let idx = 0;
+  while (resources.stories[idx].id != story.id)
+    idx++;
+
+  resources.stories[idx] = story;
+}
 
 export default Store;

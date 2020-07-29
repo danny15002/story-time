@@ -1,0 +1,7 @@
+.login-component {
+  height: 60%;
+}
+
+.login-component label {
+  margin-left: 0;
+}
