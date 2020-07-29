@@ -14,4 +14,6 @@ The API does not provide a method to update stories so Admins only edit cached s
 
 Once stories are in memory, if logged in as admin, they are never retrieved again. It is assumed this would not happen in a production application since the data would refreshed when an update is knowingly made.
 
-I did realize that I could have loaded all of the stories to a store from the initial app load and then relied on that instead of the API for future data retrieval, but I wanted to stick as closely as possible to how I would lay out an application with a fully functional API which means I would be calling for fresh data on every page load unless I had knowledge of how reliable a cache could be. 
+I did realize that I could have loaded all of the stories to a store from the initial app load and then relied on that instead of the API for future data retrieval, but I wanted to stick as closely as possible to how I would lay out an application with a fully functional API which means I would be calling for fresh data on every page load unless I had knowledge of how reliable a cache could be.
+
+This was not necessarily an assumption, but a shortcut. I handled auth based display logic by accessing the Store directly in components. This was only to save a bit of time. Usually I would maintain auth in the higher order component permissions wrapper. I want to make a note that I am aware I did not handle that using good practices.
