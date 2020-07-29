@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-class RouteNotFoundComponent extends Component {
+import withAuth from '../ProtectedWrapper';
+
+class StoriesComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -12,10 +14,10 @@ class RouteNotFoundComponent extends Component {
   render() {
     return (
       <div>
-        <div>No matching route found.</div>
+        <div>Stories</div>
       </div>
     );
   }
 }
 
-export default RouteNotFoundComponent;
+export default withAuth(StoriesComponent);

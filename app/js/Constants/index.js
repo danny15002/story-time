@@ -1,0 +1,6 @@
+const CONSTANTS = {
+  SIGN_IN: 'SIGN_IN',
+  CREATE_STORY: 'CREATE_STORY'
+};
+
+export default CONSTANTS;
